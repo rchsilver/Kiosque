@@ -2,7 +2,7 @@ from menu import products
 from collections import Counter
 
 
-def get_product_by_id(id: int):
+def get_product_by_id(id: int) -> dict:
     if type(id) != int:
         raise TypeError("product id must be an int")
 
@@ -13,7 +13,7 @@ def get_product_by_id(id: int):
     return {}
 
 
-def get_products_by_type(search: str):
+def get_products_by_type(search: str) -> list:
     if type(search) != str:
         raise TypeError("product type must be a str")
 
@@ -25,7 +25,7 @@ def get_products_by_type(search: str):
     return search_products
 
 
-def add_product(menu: list[dict], **kwargs: dict):
+def add_product(menu: list[dict], **kwargs: dict) -> dict[str, dict]:
     if len(menu) == 0:
         kwargs["_id"] = 1
         menu.append(kwargs)
@@ -41,7 +41,7 @@ def add_product(menu: list[dict], **kwargs: dict):
         return kwargs
 
 
-def menu_report():
+def menu_report() -> str:
     product_count = len(products)
     total = 0.00
     products_types = []
